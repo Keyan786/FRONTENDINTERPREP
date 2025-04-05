@@ -127,6 +127,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize feature cards
     initFeatureCards();
+    
+    // Initialize the logout confirmation
+    initLogoutConfirmation();
 });
 
 // Create floating particle effect
@@ -341,5 +344,189 @@ function initFeatureCards() {
                 }, 200);
             }
         });
+    });
+}
+
+// Logout confirmation
+function initLogoutConfirmation() {
+    // Create the modal HTML and add it to the body
+    const modalHTML = `
+        <div id="logoutConfirmModal" class="custom-modal">
+            <div class="custom-modal-content">
+                <div class="custom-modal-header">
+                    <h4><i class="fas fa-sign-out-alt me-2"></i>Confirm Logout</h4>
+                    <button type="button" class="modal-close-btn">&times;</button>
+                </div>
+                <div class="custom-modal-body">
+                    <p>Are you sure you want to log out?</p>
+                </div>
+                <div class="custom-modal-footer">
+                    <button type="button" class="btn-cancel">Cancel</button>
+                    <button type="button" class="btn-confirm">Yes, Log out</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Add modal to body if it doesn't already exist
+    if (!document.getElementById('logoutConfirmModal')) {
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
+    
+    // Add the modal styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .custom-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .custom-modal-content {
+            background: white;
+            margin: 15% auto;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .custom-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            color: white;
+        }
+        
+        .custom-modal-header h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .modal-close-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .custom-modal-body {
+            padding: 20px;
+            font-size: 1rem;
+        }
+        
+        .custom-modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            padding: 15px 20px;
+            border-top: 1px solid #eee;
+            gap: 10px;
+        }
+        
+        .btn-cancel {
+            padding: 8px 16px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-cancel:hover {
+            background-color: #e9ecef;
+        }
+        
+        .btn-confirm {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-confirm:hover {
+            background: linear-gradient(135deg, #34a853, #4285f4);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Get modal elements
+    const modal = document.getElementById('logoutConfirmModal');
+    const closeBtn = modal.querySelector('.modal-close-btn');
+    const cancelBtn = modal.querySelector('.btn-cancel');
+    const confirmBtn = modal.querySelector('.btn-confirm');
+    
+    // Store current logout URL
+    let currentLogoutUrl = '';
+    
+    // Find all logout links
+    const logoutLinks = document.querySelectorAll('a[href*="logout"]');
+    
+    // Add click event listeners to all logout links
+    logoutLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            // Prevent the default link behavior
+            event.preventDefault();
+            
+            // Store the logout URL
+            currentLogoutUrl = this.href;
+            
+            // Show the modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+    });
+    
+    // Close modal when clicking the close button
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    });
+    
+    // Close modal when clicking the cancel button
+    cancelBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    });
+    
+    // Handle confirm logout
+    confirmBtn.addEventListener('click', function() {
+        // Navigate to the logout URL
+        if (currentLogoutUrl) {
+            window.location.href = currentLogoutUrl;
+        }
+    });
+    
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
     });
 }

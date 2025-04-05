@@ -1,359 +1,294 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB-INTER-PREP</title>
-    <link rel="stylesheet" href="static/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+{% block title %}Web Interview Prep - Master Your Interview Skills{% endblock %}
 
-<body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div><a href="{{ url_for('index') }}" style="text-decoration: none;" class="logo">WEB-INTER-PREP</a></div>
-        <div class="nav-links">
-            <a href="{{ url_for('resume_template')}}" class="nav-item"><i class="fas fa-file-alt"></i> Resume Template</a>
-            <a href="#contact" class="nav-item"><i class="fas fa-envelope"></i> Contact</a>
-            <a href="{{ url_for('register') }}" id="register-link" class="nav-item"><i class="fas fa-user-plus"></i> Register</a>
-        </div>
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-    </nav>
-
-    <!-- Hero Section with Animated Elements -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1 class="animated-color">Prepare for Your Next Interview</h1>
-            <p class="hero-subtitle">Master the skills that will make you stand out</p>
-            <a href="{{ url_for('register') }}" class="btn animated-color">
-                <span>Start Now</span>
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-        <div class="hero-graphics">
-            <div class="floating-shape shape-1"></div>
-            <div class="floating-shape shape-2"></div>
-            <div class="floating-shape shape-3"></div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features">
-        <div class="section-header">
-            <h2>Why Choose Us?</h2>
-            <p>Comprehensive resources to boost your interview preparation</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>Technical Prep</h3>
-                <p>Master algorithms, data structures, and coding challenges</p>
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center py-5">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
+                    Master Your Interview Skills
+                </h1>
+                <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    Practice with AI-powered interviews, track your progress, and land your dream job with confidence.
+                </p>
+                <div class="d-flex gap-3 animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">Get Started</a>
+                    <a href="#features" class="btn btn-outline-primary btn-lg">Learn More</a>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-comments"></i></div>
-                <h3>Behavioral Skills</h3>
-                <p>Practice answering common interview questions</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Progress Tracking</h3>
-                <p>Monitor your improvement over time</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-building"></i></div>
-                <h3>Company Specific</h3>
-                <p>Tailored preparation for top companies</p>
+            <div class="col-lg-6 text-center">
+                <img src="{{ url_for('static', filename='images/hero-image.svg') }}" alt="Interview Practice" class="img-fluid animate__animated animate__fadeInRight" style="max-height: 400px;">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Categories Section with Interactive Cards -->
-    <section id="categories">
-        <h2>Various Courses</h2>
-        <div class="category-container">
-            <div class="category-card" onclick="coursedsa('coursedsa')">
-                <div class="card-icon"><i class="fas fa-code"></i></div>
-                <div class="card-title">Course For DSA</div>
-                <div class="card-overlay">
-                    <span>Explore DSA</span>
-                </div>
-            </div>
-            <div class="category-card" onclick="courseweb('courseweb')">
-                <div class="card-icon"><i class="fas fa-globe"></i></div>
-                <div class="card-title">Course For WEB-DEV</div>
-                <div class="card-overlay">
-                    <span>Explore Web Development</span>
-                </div>
-            </div>
-            <div class="category-card" onclick="courseapp('courseapp')">
-                <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
-                <div class="card-title">Course For APP-DEV</div>
-                <div class="card-overlay">
-                    <span>Explore App Development</span>
-                </div>
-            </div>
-            <div class="category-card" onclick="courseaiml('courseaiml')">
-                <div class="card-icon"><i class="fas fa-brain"></i></div>
-                <div class="card-title">Course For AIML</div>
-                <div class="card-overlay">
-                    <span>Explore AI/ML</span>
-                </div>
-            </div>
-            <div class="category-card" onclick="morecourse('other')">
-                <div class="card-icon"><i class="fas fa-plus-circle"></i></div>
-                <div class="card-title">More Courses</div>
-                <div class="card-overlay">
-                    <span>Discover More</span>
-                </div>
+<!-- Features Section -->
+<section id="features" class="features-section py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="section-title">Why Choose Web Inter Prep?</h2>
+                <div class="title-underline"></div>
             </div>
         </div>
-    </section>
-
-    <div class="styled-hr"></div>
-
-    <!-- Streams Section with Interactive Cards -->
-    <section id="streams">
-        <h2>Streams</h2>
-        <div class="category-container">
-            <div class="category-card" onclick="problemDSA('problem-solving-DSA')">
-                <div class="card-icon"><i class="fas fa-puzzle-piece"></i></div>
-                <div class="card-title">Problem Solving DSA</div>
-                <div class="card-overlay">
-                    <span>100 DSA Problems</span>
-                </div>
-            </div>
-            <div class="category-card" onclick="problemWeb('problem-solving-web')">
-                <div class="card-icon"><i class="fas fa-code"></i></div>
-                <div class="card-title">Problem Solving Web-dev</div>
-                <div class="card-overlay">
-                    <span>100 Web Dev Problems</span>
-                </div>
-            </div>
-            <div class="category-card" onclick="problemApp('problem-solving-app')">
-                <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
-                <div class="card-title">Problem Solving App-dev</div>
-                <div class="card-overlay">
-                    <span>100 App Dev Problems</span>
-                </div>
-            </div>
-            <div class="category-card" onclick="problemAIML('aiml')">
-                <div class="card-icon"><i class="fas fa-robot"></i></div>
-                <div class="card-title">Problem Solving AIML</div>
-                <div class="card-overlay">
-                    <span>100 AI/ML Problems</span>
-                </div>
-            </div>
-            <div class="category-card" onclick="morecourse('other')">
-                <div class="card-icon"><i class="fas fa-plus-circle"></i></div>
-                <div class="card-title">More Streams</div>
-                <div class="card-overlay">
-                    <span>Discover More</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <div class="section-header">
-            <h2>Success Stories</h2>
-            <p>Hear from our community members who landed their dream jobs</p>
-        </div>
-        <div class="testimonial-slider">
-            <div class="testimonial-slide">
-                <div class="testimonial-content">
-                    <div class="quote"><i class="fas fa-quote-left"></i></div>
-                    <p>This platform helped me crack my interview at Google! The DSA problems were exactly what I needed.</p>
-                    <div class="testimonial-author">
-                        <div class="author-name">Sarah J.</div>
-                        <div class="author-role">Software Engineer at Google</div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-wrapper mx-auto mb-4">
+                            <i class="fas fa-robot fa-2x text-primary"></i>
+                        </div>
+                        <h3 class="card-title h4 mb-3">AI-Powered Interviews</h3>
+                        <p class="card-text">Practice with our advanced AI interviewer that adapts to your responses and provides real-time feedback.</p>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-slide">
-                <div class="testimonial-content">
-                    <div class="quote"><i class="fas fa-quote-left"></i></div>
-                    <p>The company-specific preparation was a game-changer. I felt confident walking into my Amazon interview.</p>
-                    <div class="testimonial-author">
-                        <div class="author-name">Michael T.</div>
-                        <div class="author-role">Backend Developer at Amazon</div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-wrapper mx-auto mb-4">
+                            <i class="fas fa-chart-line fa-2x text-primary"></i>
+                        </div>
+                        <h3 class="card-title h4 mb-3">Progress Tracking</h3>
+                        <p class="card-text">Monitor your improvement over time with detailed analytics and performance metrics.</p>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-slide">
-                <div class="testimonial-content">
-                    <div class="quote"><i class="fas fa-quote-left"></i></div>
-                    <p>The web development resources helped me showcase my portfolio in the best way possible!</p>
-                    <div class="testimonial-author">
-                        <div class="author-name">Jessica M.</div>
-                        <div class="author-role">Frontend Engineer at Meta</div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-wrapper mx-auto mb-4">
+                            <i class="fas fa-building fa-2x text-primary"></i>
+                        </div>
+                        <h3 class="card-title h4 mb-3">Company-Specific Prep</h3>
+                        <p class="card-text">Access interview questions and resources tailored to your target companies.</p>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-navigation">
-                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
-                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works-section py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="section-title">How It Works</h2>
+                <div class="title-underline"></div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <footer id="contact">
-        <h3>Contact Us</h3>
-        <div class="contact-grid">
-            <div class="contact-item">
-                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                <p>Email: <a href="mailto:support@webinterprep.com">support@webinterprep.com</a></p>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="step-number mx-auto mb-3">1</div>
+                        <h4 class="mb-3">Create Account</h4>
+                        <p class="mb-0">Sign up for free and set up your profile</p>
+                    </div>
+                </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="step-number mx-auto mb-3">2</div>
+                        <h4 class="mb-3">Set Goals</h4>
+                        <p class="mb-0">Define your target role and companies</p>
+                    </div>
+                </div>
             </div>
-            <div class="contact-item">
-                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <p>Location: Digital Avenue, Tech City</p>
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="step-number mx-auto mb-3">3</div>
+                        <h4 class="mb-3">Practice</h4>
+                        <p class="mb-0">Start practicing with AI interviews</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="step-number mx-auto mb-3">4</div>
+                        <h4 class="mb-3">Improve</h4>
+                        <p class="mb-0">Get feedback and track your progress</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="social-links">
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="section-title">Success Stories</h2>
+                <div class="title-underline"></div>
+            </div>
         </div>
-        <div class="copyright">
-            <p>© 2025 WEB-INTER-PREP. All rights reserved.</p>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body p-4">
+                        <div class="testimonial-content mb-4">
+                            <i class="fas fa-quote-left fa-2x text-primary opacity-25 mb-3"></i>
+                            <p class="lead">"Web Inter Prep helped me land my dream job at Google! The AI interviews were incredibly realistic."</p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <span class="fw-bold">SJ</span>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Sarah Johnson</h5>
+                                <p class="mb-0 text-muted">Software Engineer at Google</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body p-4">
+                        <div class="testimonial-content mb-4">
+                            <i class="fas fa-quote-left fa-2x text-primary opacity-25 mb-3"></i>
+                            <p class="lead">"The progress tracking feature helped me identify my weak areas and improve significantly."</p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <span class="fw-bold">MC</span>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Michael Chen</h5>
+                                <p class="mb-0 text-muted">Product Manager at Microsoft</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body p-4">
+                        <div class="testimonial-content mb-4">
+                            <i class="fas fa-quote-left fa-2x text-primary opacity-25 mb-3"></i>
+                            <p class="lead">"The company-specific questions were spot-on! I felt very prepared for my interviews."</p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <span class="fw-bold">ER</span>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Emily Rodriguez</h5>
+                                <p class="mb-0 text-muted">Data Scientist at Amazon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+<!-- CTA Section -->
+<section class="cta-section py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Ready to Ace Your Next Interview?</h2>
+        <p class="lead mb-4">Join thousands of successful candidates who prepared with Web Inter Prep</p>
+        <a href="{{ url_for('register') }}" class="btn btn-light btn-lg px-4">
+            <i class="fas fa-user-plus me-2"></i>Start Free Trial
+        </a>
+    </div>
+</section>
 
-        // Testimonial slider functionality
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        let currentSlide = 0;
+<style>
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 50px 0;
+    position: relative;
+    overflow: hidden;
+}
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.display = i === index ? 'block' : 'none';
-            });
-        }
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url("{{ url_for('static', filename='images/pattern.svg') }}") repeat;
+    opacity: 0.1;
+}
 
-        prevBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        });
+/* Section styling */
+.section-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
 
-        nextBtn.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        });
+.title-underline {
+    height: 4px;
+    width: 50px;
+    background: var(--bs-primary);
+    margin: 0 auto 30px;
+    border-radius: 2px;
+}
 
-        // Initialize the slider
-        showSlide(currentSlide);
+/* Icon Wrapper */
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: rgba(13, 110, 253, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
 
-        // Original functions
-        function startPreparation() {
-            window.location.href = "{{ url_for('register') }}";
-        }
-        
-        function problemDSA() {
-            let link = document.createElement('a');
-            link.href = "{{ url_for('static', filename='100Problem.pdf') }}"; // Correct Flask static URL
-            link.download = '100ProblemDSA.pdf'; // File name
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        function problemWeb() {
-            let link = document.createElement('a');
-            link.href = "{{ url_for('static', filename='web_dev_100_questions.pdf') }}"; // Correct Flask static URL
-            link.download = '100ProblemWEB.pdf'; // File name
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        function problemApp() {
-            let link = document.createElement('a');
-            link.href = "{{ url_for('static', filename='100problemApp.pdf') }}"; // Correct Flask static URL
-            link.download = '100ProblemAPP.pdf'; // File name
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        function problemAIML() {
-            let link = document.createElement('a');
-            link.href = "{{ url_for('static', filename='100AIML.pdf') }}"; // Correct Flask static URL
-            link.download = '100ProblemAIML.pdf'; // File name
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        function coursedsa() {
-            let link = document.createElement('a');
-            link.href = "https://www.youtube.com/watch?v=yRpLlJmRo2w&list=PLfqMhTWNBTe3LtFWcvwpqTkUSlB32kJop";
-            link.target = "_blank";  // Opens link in a new tab
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }        
-        
-        function courseweb() {
-            let link = document.createElement('a');
-            link.href = "https://www.youtube.com/watch?v=tVzUXW6siu0&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w";
-            link.target = "_blank";  // Opens link in a new tab
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        function courseapp() {
-            let link = document.createElement('a');
-            link.href = "https://www.youtube.com/watch?v=HyU4vkZ2NB8&list=PLjVLYmrlmjGdDps6HAwOOVoAtBPAgIOXL";
-            link.target = "_blank";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        function courseaiml() {
-            let link = document.createElement('a');
-            link.href = "https://www.youtube.com/watch?v=O0Ka_nBRtN0";
-            link.target = "_blank";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        function morecourse() {
-            let link = document.createElement('a');
-            link.href = "{{ url_for('more') }}";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+.hover-card:hover .icon-wrapper {
+    background: var(--bs-primary);
+    color: white;
+}
 
-        // Adding animation to category cards
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.classList.add('animated');
-            });
-            card.addEventListener('mouseleave', function() {
-                this.classList.remove('animated');
-            });
-        });
-    </script>
-</body>
+.hover-card:hover .icon-wrapper i {
+    color: white !important;
+}
 
-</html>
+/* Step Number */
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--bs-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.hover-card:hover .step-number {
+    transform: scale(1.1);
+}
+
+/* Card styling */
+.hover-card {
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.hover-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+</style>
+{% endblock %}

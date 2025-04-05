@@ -31,6 +31,24 @@
           <p>Join our community and start your interview preparation journey</p>
         </div>
         
+        <!-- Flash messages with more styling -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">
+                {% if category == 'danger' %}
+                  <strong>Error:</strong> 
+                {% elif category == 'warning' %}
+                  <strong>Warning:</strong> 
+                {% elif category == 'success' %}
+                  <strong>Success:</strong> 
+                {% endif %}
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        
         <form method="POST" action="" class="auth-form">
           {{ form.hidden_tag() }}
           
@@ -65,6 +83,7 @@
         
         <div class="auth-footer">
           <p>Already have an account? <a href="{{ url_for('login') }}">Sign in</a></p>
+          <p class="small text-muted">Having trouble? <a href="{{ url_for('db_health_check') }}" target="_blank">Check system status</a></p>
         </div>
       </div>
     </div>

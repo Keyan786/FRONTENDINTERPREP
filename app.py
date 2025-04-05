@@ -26,9 +26,16 @@ load_dotenv()
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/interview_prep'
+# Database configuration
+if os.environ.get('RENDER'):
+    # Production database URL from Render
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+else:
+    # Local database URL
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/interview_prep'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = '\x8bO|\xc3\xe3\x99&h%\xb9\xebU\xf9\x1eb\xee$\x85\xf1Z\x95\x85\xe3\xdd'
+app.secret_key = os.environ.get('SECRET_KEY', '\x8bO|\xc3\xe3\x99&h%\xb9\xebU\xf9\x1eb\xee$\x85\xf1Z\x95\x85\xe3\xdd')
 
 # Add these configurations after the existing app configurations
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
@@ -48,19 +55,31 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(PROFILE_PHOTOS_FOLDER, exist_ok=True)
 print(f"Profile photos folder: {PROFILE_PHOTOS_FOLDER}")
 
-# Configure Gemini API with the correct API key
-genai.configure(api_key="AIzaSyD8IqB_QpUaE1XQjvjJD8511szRJMTSHm0")
+# Configure Gemini API with the correct API key from environment variable
+genai.configure(api_key=os.environ.get('GEMINI_API_KEY', 'AIzaSyD8IqB_QpUaE1XQjvjJD8511szRJMTSHm0'))
 
 def get_db_connection():
     """Get a new database connection"""
     try:
-        connection = pymysql.connect(
-            host='localhost',
-            user='root',
-            password='',
-            database='interview_prep',
-            cursorclass=pymysql.cursors.DictCursor
-        )
+        if os.environ.get('RENDER'):
+            # Parse DATABASE_URL for production
+            db_url = os.environ.get('DATABASE_URL')
+            connection = pymysql.connect(
+                host=db_url.split('@')[1].split('/')[0],
+                user=db_url.split('://')[1].split(':')[0],
+                password=db_url.split(':')[2].split('@')[0],
+                database=db_url.split('/')[-1],
+                cursorclass=pymysql.cursors.DictCursor
+            )
+        else:
+            # Local database connection
+            connection = pymysql.connect(
+                host='localhost',
+                user='root',
+                password='',
+                database='interview_prep',
+                cursorclass=pymysql.cursors.DictCursor
+            )
         return connection
     except Exception as e:
         print(f"Database connection error: {e}")

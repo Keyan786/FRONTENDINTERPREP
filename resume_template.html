@@ -19,21 +19,23 @@
     <!-- Navbar from layout.html (converted to static) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand logo-large" href="static_index.html">
+            <a class="navbar-brand logo-large" href="index.html">
                 <i class="fas fa-laptop-code me-2"></i>WEB-INTER-PREP
             </a>
             <div class="d-flex align-items-center">
-                <!-- Direct Nav Links -->
-                <div class="direct-nav me-3">
-                    <a href="static_index.html" class="btn btn-dark nav-btn"> <i class="fas fa-home me-2"></i>Home </a>
+                <!-- Direct Nav Links - Hide on small screens -->
+                <div class="direct-nav me-3 d-none d-lg-flex">
+                    <a href="index.html" class="btn btn-dark nav-btn"> <i class="fas fa-home me-2"></i>Home </a>
                     <a href="dashboard.html" class="btn btn-dark nav-btn"> <i class="fas fa-tachometer-alt me-2"></i>Dashboard </a>
                 </div>
-                <div class="nav-more-container me-3">
+                <!-- More Button - Hide on small screens -->
+                <div class="nav-more-container me-3 d-none d-lg-block">
                     <button class="btn btn-dark nav-more-btn" type="button" id="navMoreBtn"> <i class="fas fa-ellipsis-h"></i> More </button>
                     <div class="nav-more-dropdown" id="navMoreDropdown">
                         <div class="nav-more-content">
                             <div class="nav-more-header"> <h5>Menu</h5> <button class="btn-close btn-close-white" id="navMoreClose"></button> </div>
                             <div class="nav-more-items">
+                                <!-- Links from More Dropdown -->
                                 <a href="company_prep.html"> <i class="fas fa-building me-2"></i>Company Prep </a>
                                 <a href="ai_interview.html"> <i class="fas fa-robot me-2"></i>AI Interview </a>
                                 <a href="resume_template.html"> <i class="fas fa-file-alt me-2"></i>Resume </a>
@@ -45,7 +47,35 @@
                         </div>
                     </div>
                 </div>
-                <div class="auth-controls">
+
+                <!-- Main Toggle Button for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarCollapse" aria-controls="mainNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Collapsible Content -->
+                <div class="collapse navbar-collapse" id="mainNavbarCollapse">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                         <!-- Direct Links for Mobile -->
+                         <li class="nav-item d-lg-none"><a class="nav-link" href="index.html"> <i class="fas fa-home me-2"></i>Home </a></li>
+                         <li class="nav-item d-lg-none"><a class="nav-link" href="dashboard.html"> <i class="fas fa-tachometer-alt me-2"></i>Dashboard </a></li>
+                         <!-- Links from More Dropdown for Mobile -->
+                         <li class="nav-item d-lg-none"><a class="nav-link" href="company_prep.html"> <i class="fas fa-building me-2"></i>Company Prep </a></li>
+                         <li class="nav-item d-lg-none"><a class="nav-link" href="ai_interview.html"> <i class="fas fa-robot me-2"></i>AI Interview </a></li>
+                         <li class="nav-item d-lg-none"><a class="nav-link" href="resume_template.html"> <i class="fas fa-file-alt me-2"></i>Resume </a></li>
+                         <li class="nav-item d-lg-none"><a class="nav-link" href="interview_progress.html"> <i class="fas fa-tasks me-2"></i>Calender </a></li>
+                         <li class="nav-item d-lg-none"><a class="nav-link" href="dsa.html"> <i class="fas fa-code me-2"></i>DSA </a></li>
+                         <li class="nav-item d-lg-none"><a class="nav-link" href="resources.html"> <i class="fas fa-book-reader me-2"></i>Resources </a></li>
+                         <li class="nav-item d-lg-none"><a class="nav-link" href="career_roadmap.html"> <i class="fas fa-road me-2"></i>Career Roadmap </a></li>
+                          <li class="nav-item d-lg-none"><hr class="dropdown-divider"></li>
+                          <!-- Auth Controls for Mobile -->
+                          <li class="nav-item d-lg-none"><a class="nav-link" href="login.html"> <i class="fas fa-sign-in-alt me-1"></i> Login </a></li>
+                          <li class="nav-item d-lg-none"><a class="nav-link" href="register.html"> <i class="fas fa-user-plus me-1"></i> Register </a></li>
+                    </ul>
+                </div>
+
+                <!-- Auth Controls for large screens -->
+                <div class="auth-controls d-none d-lg-flex">
                     <a class="btn btn-outline-light btn-sm me-2" href="login.html"> <i class="fas fa-sign-in-alt me-1"></i> Login </a>
                     <a class="btn btn-outline-light btn-sm" href="register.html"> <i class="fas fa-user-plus me-1"></i> Register </a>
                 </div>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Interview Prep - Master Your Interview Skills</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand logo-large" href="static_index.html">
+                <i class="fas fa-laptop-code me-2"></i>WEB-INTER-PREP
+            </a>
+            <div class="d-flex align-items-center">
+                <!-- Direct Nav Links -->
+                <div class="direct-nav me-3">
+                    <a href="static_index.html" class="btn btn-dark nav-btn">
+                        <i class="fas fa-home me-2"></i>Home
+                    </a>
+                    <a href="dashboard.html" class="btn btn-dark nav-btn">
+                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                    </a>
+                </div>
+                
+                <!-- More Button -->
+                <div class="nav-more-container me-3">
+                    <button class="btn btn-dark nav-more-btn" type="button" id="navMoreBtn">
+                        <i class="fas fa-ellipsis-h"></i> More
+                    </button>
+                    <!-- More Dropdown Menu (Hidden by default) -->
+                    <div class="nav-more-dropdown" id="navMoreDropdown">
+                        <div class="nav-more-content">
+                            <div class="nav-more-header">
+                                <h5>Menu</h5>
+                                <button class="btn-close btn-close-white" id="navMoreClose"></button>
+                            </div>
+                            <div class="nav-more-items">
+                                <a href="company_prep.html"> <!-- Assuming company_prep_static.html will be created -->
+                                    <i class="fas fa-building me-2"></i>Company Prep
+                                </a>
+                                <a href="ai_interview.html"> <!-- Assuming ai_interview_static.html will be created -->
+                                    <i class="fas fa-robot me-2"></i>AI Interview
+                                </a>
+                                <!-- Static version: These links will always show but rely on backend data -->
+                                <a href="resume_template.html"> <!-- Assuming resume_template_static.html will be created -->
+                                    <i class="fas fa-file-alt me-2"></i>Resume
+                                </a>
+                                <a href="interview_progress.html"> <!-- Assuming interview_progress_static.html will be created -->
+                                    <i class="fas fa-tasks me-2"></i>Calender
+                                </a>
+                                <a href="dsa.html"> <!-- Assuming dsa_static.html will be created -->
+                                    <i class="fas fa-code me-2"></i>DSA
+                                </a>
+                                <a href="resources.html"> <!-- Assuming resources_static.html will be created -->
+                                    <i class="fas fa-book-reader me-2"></i>Resources
+                                </a>
+                                <a href="career_roadmap.html"> <!-- Assuming career_roadmap_static.html will be created -->
+                                    <i class="fas fa-road me-2"></i>Career Roadmap
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Authentication Controls - Static Version: Always show Login/Register -->
+                <div class="auth-controls">
+                    <a class="btn btn-outline-light btn-sm me-2" href="login.html">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login
+                    </a>
+                    <a class="btn btn-outline-light btn-sm" href="register.html">
+                        <i class="fas fa-user-plus me-1"></i> Register
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Removed flash messages block -->
+        
+        <!-- Start Content Block from index.html -->
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center py-5">
+                    <div class="col-lg-6">
+                        <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
+                            Master Your Interview Skills
+                        </h1>
+                        <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                            Practice with AI-powered interviews, track your progress, and land your dream job with confidence.
+                        </p>
+                        <div class="d-flex gap-3 animate__animated animate__fadeInUp animate__delay-2s">
+                            <a href="register.html" class="btn btn-primary btn-lg">Get Started</a> <!-- Assuming register_static.html will be created -->
+                            <a href="#features" class="btn btn-outline-primary btn-lg">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="static/images/hero-image.svg" alt="Interview Practice" class="img-fluid animate__animated animate__fadeInRight" style="max-height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section py-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 class="section-title">Why Choose Web Inter Prep?</h2>
+                        <div class="title-underline"></div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm hover-card">
+                            <div class="card-body text-center p-4">
+                                <div class="icon-wrapper mx-auto mb-4">
+                                    <i class="fas fa-robot fa-2x text-primary"></i>
+                                </div>
+                                <h3 class="card-title h4 mb-3">AI-Powered Interviews</h3>
+                                <p class="card-text">Practice with our advanced AI interviewer that adapts to your responses and provides real-time feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm hover-card">
+                            <div class="card-body text-center p-4">
+                                <div class="icon-wrapper mx-auto mb-4">
+                                    <i class="fas fa-chart-line fa-2x text-primary"></i>
+                                </div>
+                                <h3 class="card-title h4 mb-3">Progress Tracking</h3>
+                                <p class="card-text">Monitor your improvement over time with detailed analytics and performance metrics.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm hover-card">
+                            <div class="card-body text-center p-4">
+                                <div class="icon-wrapper mx-auto mb-4">
+                                    <i class="fas fa-building fa-2x text-primary"></i>
+                                </div>
+                                <h3 class="card-title h4 mb-3">Company-Specific Prep</h3>
+                                <p class="card-text">Access interview questions and resources tailored to your target companies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works-section py-5 bg-light">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 class="section-title">How It Works</h2>
+                        <div class="title-underline"></div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="card h-100 shadow-sm hover-card">
+                            <div class="card-body text-center p-4">
+                                <div class="step-number mx-auto mb-3">1</div>
+                                <h4 class="mb-3">Create Account</h4>
+                                <p class="mb-0">Sign up for free and set up your profile</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card h-100 shadow-sm hover-card">
+                            <div class="card-body text-center p-4">
+                                <div class="step-number mx-auto mb-3">2</div>
+                                <h4 class="mb-3">Set Goals</h4>
+                                <p class="mb-0">Define your target role and companies</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card h-100 shadow-sm hover-card">
+                            <div class="card-body text-center p-4">
+                                <div class="step-number mx-auto mb-3">3</div>
+                                <h4 class="mb-3">Practice</h4>
+                                <p class="mb-0">Start practicing with AI interviews</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card h-100 shadow-sm hover-card">
+                            <div class="card-body text-center p-4">
+                                <div class="step-number mx-auto mb-3">4</div>
+                                <h4 class="mb-3">Improve</h4>
+                                <p class="mb-0">Get feedback and track your progress</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section py-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 class="section-title">Success Stories</h2>
+                        <div class="title-underline"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="card h-100 shadow-sm hover-card">
+                            <div class="card-body p-4">
+                                <div class="testimonial-content mb-4">
+                                    <i class="fas fa-quote-left fa-2x text-primary opacity-25 mb-3"></i>
+                                    <p class="lead">"Web Inter Prep helped me land my dream job at Google! The AI interviews were incredibly realistic."</p>
+                                </div>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                        <span class="fw-bold">SJ</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Sarah Johnson</h5>
+                                        <p class="mb-0 text-muted">Software Engineer at Google</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="card h-100 shadow-sm hover-card">
+                            <div class="card-body p-4">
+                                <div class="testimonial-content mb-4">
+                                    <i class="fas fa-quote-left fa-2x text-primary opacity-25 mb-3"></i>
+                                    <p class="lead">"The progress tracking feature helped me identify my weak areas and improve significantly."</p>
+                                </div>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                        <span class="fw-bold">MC</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Michael Chen</h5>
+                                        <p class="mb-0 text-muted">Product Manager at Microsoft</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="card h-100 shadow-sm hover-card">
+                            <div class="card-body p-4">
+                                <div class="testimonial-content mb-4">
+                                    <i class="fas fa-quote-left fa-2x text-primary opacity-25 mb-3"></i>
+                                    <p class="lead">"The company-specific questions were spot-on! I felt very prepared for my interviews."</p>
+                                </div>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                        <span class="fw-bold">ER</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Emily Rodriguez</h5>
+                                        <p class="mb-0 text-muted">Data Scientist at Amazon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section py-5 bg-primary text-white">
+            <div class="container text-center">
+                <h2 class="mb-4">Ready to Ace Your Next Interview?</h2>
+                <p class="lead mb-4">Join thousands of successful candidates who prepared with Web Inter Prep</p>
+                <a href="register.html" class="btn btn-light btn-lg px-4"> <!-- Assuming register_static.html will be created -->
+                    <i class="fas fa-user-plus me-2"></i>Start Free Trial
+                </a>
+            </div>
+        </section>
+
+        <style>
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            /* Replaced url_for with static path */
+            background: url("static/images/pattern.svg") repeat; 
+            opacity: 0.1;
+        }
+
+        /* Section styling */
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .title-underline {
+            height: 4px;
+            width: 50px;
+            background: var(--bs-primary);
+            margin: 0 auto 30px;
+            border-radius: 2px;
+        }
+
+        /* Icon Wrapper */
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: rgba(13, 110, 253, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Added for centering icon */
+        }
+        
+        /* How it Works Steps */
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--bs-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonial-author .rounded-circle {
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Card Hover Effect */
+        .hover-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Additional Styles from index.html are already included or general enough */
+
+        </style>
+        <!-- End Content Block -->
+    </div>
+    
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3><i class="fas fa-envelope me-2"></i>Contact Us</h3>
+                    <p><i class="fas fa-envelope me-2"></i>support@webinterprep.com</p>
+                    <p><i class="fas fa-phone me-2"></i>+123 456 7890</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h3><i class="fas fa-share-alt me-2"></i>Follow Us</h3>
+                    <p>
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook me-1"></i>Facebook</a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter me-1"></i>Twitter</a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin me-1"></i>LinkedIn</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <p><i class="far fa-copyright me-2"></i>2025 Web Interview Prep. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/script.js"></script>
+    
+    
+    <script>
+        // More dropdown functionality (from layout.html)
+        document.addEventListener('DOMContentLoaded', function() {
+            const moreBtn = document.getElementById('navMoreBtn');
+            const moreDropdown = document.getElementById('navMoreDropdown');
+            const moreClose = document.getElementById('navMoreClose');
+            
+            if(moreBtn && moreDropdown && moreClose) { // Check if elements exist
+                moreBtn.addEventListener('click', function() {
+                    moreDropdown.classList.toggle('show');
+                });
+                
+                moreClose.addEventListener('click', function() {
+                    moreDropdown.classList.remove('show');
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!moreBtn.contains(event.target) && 
+                        !moreDropdown.contains(event.target)) {
+                        moreDropdown.classList.remove('show');
+                    }
+                });
+            } else {
+                 console.warn("More dropdown elements not found.");
+            }
+        });
+    </script>
+</body>
+</html> 

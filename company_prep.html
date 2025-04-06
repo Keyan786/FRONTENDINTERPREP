@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title from layout.html -->
+    <title>Web Interview Prep</title> 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS from layout -->
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+    <!-- Head block from company_prep.html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+</head>
+<body>
+    <!-- Navbar from layout.html (converted to static) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand logo-large" href="static_index.html">
+                <i class="fas fa-laptop-code me-2"></i>WEB-INTER-PREP
+            </a>
+            <div class="d-flex align-items-center">
+                <!-- Direct Nav Links -->
+                <div class="direct-nav me-3">
+                    <a href="static_index.html" class="btn btn-dark nav-btn"> <i class="fas fa-home me-2"></i>Home </a>
+                    <a href="dashboard.html" class="btn btn-dark nav-btn"> <i class="fas fa-tachometer-alt me-2"></i>Dashboard </a>
+                </div>
+                <div class="nav-more-container me-3">
+                    <button class="btn btn-dark nav-more-btn" type="button" id="navMoreBtn"> <i class="fas fa-ellipsis-h"></i> More </button>
+                    <div class="nav-more-dropdown" id="navMoreDropdown">
+                        <div class="nav-more-content">
+                            <div class="nav-more-header"> <h5>Menu</h5> <button class="btn-close btn-close-white" id="navMoreClose"></button> </div>
+                            <div class="nav-more-items">
+                                <a href="company_prep.html"> <i class="fas fa-building me-2"></i>Company Prep </a>
+                                <a href="ai_interview.html"> <i class="fas fa-robot me-2"></i>AI Interview </a>
+                                <a href="resume_template.html"> <i class="fas fa-file-alt me-2"></i>Resume </a>
+                                <a href="interview_progress.html"> <i class="fas fa-tasks me-2"></i>Calender </a>
+                                <a href="dsa.html"> <i class="fas fa-code me-2"></i>DSA </a>
+                                <a href="resources.html"> <i class="fas fa-book-reader me-2"></i>Resources </a>
+                                <a href="career_roadmap.html"> <i class="fas fa-road me-2"></i>Career Roadmap </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="auth-controls">
+                    <a class="btn btn-outline-light btn-sm me-2" href="login.html"> <i class="fas fa-sign-in-alt me-1"></i> Login </a>
+                    <a class="btn btn-outline-light btn-sm" href="register.html"> <i class="fas fa-user-plus me-1"></i> Register </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Removed flash messages block -->
+        
+        <!-- Start Content Block from company_prep.html -->
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center min-vh-50">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInUp">
+                            Company-Specific Interview Preparation
+                        </h1>
+                        <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                            Master your interview skills with targeted preparation materials for top tech companies
+                        </p>
+                        <div class="search-box animate__animated animate__fadeInUp animate__delay-2s">
+                            <select id="companySearch" class="form-select form-select-lg">
+                                <option value="" selected>Search companies or select one...</option>
+                                <!-- Static Placeholder Companies -->
+                                <option value="google">Google</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="amazon">Amazon</option>
+                                <option value="netflix">Netflix</option>
+                                <option value="apple">Apple</option>
+                                <option value="microsoft">Microsoft</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Companies Grid -->
+        <section class="companies-section py-5" style="background-color: #f8f9fa;">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Company Card: Google -->
+                    <div class="col-md-6 col-lg-4 company-card" data-company="google">
+                        <div class="card h-100 company-card-google">
+                            <div class="card-body d-flex flex-column">
+                                <div class="company-logo-placeholder">▶ Google Logo</div>
+                                <h3 class="card-title mt-auto">Google</h3>
+                                <p class="card-text">Comprehensive interview preparation materials and guides</p>
+                                <a href="#" class="btn btn-explore mt-3 align-self-start"> Explore Preparation Material </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Company Card: Facebook -->
+                    <div class="col-md-6 col-lg-4 company-card" data-company="facebook">
+                        <div class="card h-100 company-card-facebook">
+                            <div class="card-body d-flex flex-column">
+                                <div class="company-logo-placeholder">▶ Facebook Logo</div>
+                                <h3 class="card-title mt-auto">Facebook</h3>
+                                <p class="card-text">Comprehensive interview preparation materials and guides</p>
+                                <a href="#" class="btn btn-explore mt-3 align-self-start"> Explore Preparation Material </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Company Card: Amazon -->
+                    <div class="col-md-6 col-lg-4 company-card" data-company="amazon">
+                        <div class="card h-100 company-card-amazon">
+                           <div class="card-body d-flex flex-column">
+                                <div class="company-logo-placeholder">▶ Amazon Logo</div>
+                                <h3 class="card-title mt-auto">Amazon</h3>
+                                <p class="card-text">Comprehensive interview preparation materials and guides</p>
+                                <a href="#" class="btn btn-explore mt-3 align-self-start"> Explore Preparation Material </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Company Card: Netflix -->
+                    <div class="col-md-6 col-lg-4 company-card" data-company="netflix">
+                      <div class="card h-100 company-card-netflix">
+                          <div class="card-body d-flex flex-column">
+                                <div class="company-logo-placeholder">▶ Netflix Logo</div>
+                                <h3 class="card-title mt-auto">Netflix</h3>
+                                <p class="card-text">Comprehensive interview preparation materials and guides</p>
+                                <a href="#" class="btn btn-explore mt-3 align-self-start"> Explore Preparation Material </a>
+                            </div>
+                      </div>
+                    </div>
+                    <!-- Company Card: Apple -->
+                    <div class="col-md-6 col-lg-4 company-card" data-company="apple">
+                      <div class="card h-100 company-card-apple">
+                          <div class="card-body d-flex flex-column">
+                                <div class="company-logo-placeholder">▶ Apple Logo</div>
+                                <h3 class="card-title mt-auto">Apple</h3>
+                                <p class="card-text">Comprehensive interview preparation materials and guides</p>
+                                <a href="#" class="btn btn-explore mt-3 align-self-start"> Explore Preparation Material </a>
+                            </div>
+                      </div>
+                    </div>
+                    <!-- Company Card: Microsoft -->
+                    <div class="col-md-6 col-lg-4 company-card" data-company="microsoft">
+                      <div class="card h-100 company-card-microsoft">
+                          <div class="card-body d-flex flex-column">
+                                <div class="company-logo-placeholder">▶ Microsoft Logo</div>
+                                <h3 class="card-title mt-auto">Microsoft</h3>
+                                <p class="card-text">Comprehensive interview preparation materials and guides</p>
+                                <a href="#" class="btn btn-explore mt-3 align-self-start"> Explore Preparation Material </a>
+                            </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+            padding: 100px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("static/images/pattern.svg") repeat;
+            opacity: 0.1;
+        }
+
+        /* Search Box */
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Removed input styles as we use select now */
+
+        /* Company Cards */
+        .company-card {
+            transition: transform 0.3s ease;
+        }
+
+        .company-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .company-logo img {
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .company-logo img {
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        .animate__animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 50px 0;
+            }
+            
+            .company-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* General Card Styles */
+        .card {
+            border: none;
+            border-radius: 15px; /* Rounded corners like image */
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            color: white; /* Default text color */
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+        .card-body {
+            padding: 1.5rem 2rem; /* Adjust padding */
+            position: relative; /* Needed for logo placeholder positioning */
+        }
+
+        /* Logo Placeholder Styles */
+        .company-logo-placeholder {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Card Content Styles */
+        .card-title {
+            font-size: 2rem; /* Larger title */
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .card-text {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem; /* Space before button */
+        }
+
+        /* Button Styles */
+        .btn-explore {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .btn-explore:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        /* Specific Company Card Backgrounds */
+        .company-card-google { background: linear-gradient(135deg, #34A853, #4285F4); }
+        .company-card-facebook { background: linear-gradient(135deg, #1877F2, #3b5998); }
+        .company-card-amazon { background: linear-gradient(135deg, #FF9900, #d17f00); } /* Adjusted Amazon gradient */
+        .company-card-netflix { background: linear-gradient(135deg, #E50914, #a1070e); } /* Adjusted Netflix gradient */
+        .company-card-apple { background: linear-gradient(135deg, #A2AAAD, #555); } /* Adjusted Apple gradient */
+        .company-card-microsoft { background: linear-gradient(135deg, #00A4EF, #0078D4); } /* Adjusted Microsoft gradient */
+        </style>
+        <!-- End Content Block -->
+    </div>
+    
+    <!-- Footer from layout.html (converted to static) -->
+     <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3><i class="fas fa-envelope me-2"></i>Contact Us</h3>
+                    <p><i class="fas fa-envelope me-2"></i>support@webinterprep.com</p>
+                    <p><i class="fas fa-phone me-2"></i>+123 456 7890</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h3><i class="fas fa-share-alt me-2"></i>Follow Us</h3>
+                    <p>
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook me-1"></i>Facebook</a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter me-1"></i>Twitter</a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin me-1"></i>LinkedIn</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <p><i class="far fa-copyright me-2"></i>2025 Web Interview Prep. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/script.js"></script>
+    
+    <!-- Scripts block from layout.html -->
+    <!-- Scripts from company_prep.html -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // More dropdown functionality (from layout.html)
+        const moreBtn = document.getElementById('navMoreBtn');
+        const moreDropdown = document.getElementById('navMoreDropdown');
+        const moreClose = document.getElementById('navMoreClose');
+        
+        if(moreBtn && moreDropdown && moreClose) { 
+            moreBtn.addEventListener('click', function() { moreDropdown.classList.toggle('show'); });
+            moreClose.addEventListener('click', function() { moreDropdown.classList.remove('show'); });
+            document.addEventListener('click', function(event) {
+                if (!moreBtn.contains(event.target) && !moreDropdown.contains(event.target)) {
+                    moreDropdown.classList.remove('show');
+                }
+            });
+        } else { console.warn("More dropdown elements not found."); }
+        
+        // Search functionality (modified for static)
+        const searchSelect = document.getElementById('companySearch');
+        const companyCards = document.querySelectorAll('.company-card');
+
+        searchSelect.addEventListener('change', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            if (searchTerm === '') {
+                // Show all companies if nothing selected
+                companyCards.forEach(card => { card.style.display = 'block'; });
+            } else {
+                // Show only the selected company
+                companyCards.forEach(card => {
+                    const companyName = card.dataset.company;
+                    if (companyName === searchTerm) {
+                        card.style.display = 'block';
+                        // In a static version, we can't easily redirect to a dynamic detail page.
+                        // The links on the cards themselves can point to static detail pages if created.
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+    });
+    </script>
+    
+</body>
+</html> 

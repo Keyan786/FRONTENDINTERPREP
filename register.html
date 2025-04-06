@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - WEB-INTER-PREP</title>
+  <!-- Use static path for CSS -->
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation Bar Removed -->
+
+  <!-- Registration Section -->
+  <section class="auth-section">
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h2>Create an Account</h2>
+          <p>Join our community and start your interview preparation journey</p>
+        </div>
+        
+        <!-- Removed flash messages block -->
+        
+        <!-- Replace Flask-WTF form with static HTML form -->
+        <form method="POST" action="#" class="auth-form" onsubmit="window.location.href='dashboard.html'; return false;">
+          <!-- Removed hidden_tag -->
+          
+          <div class="form-group">
+            <label for="name"><i class="fas fa-user"></i> Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name">
+            <!-- Removed error display loop -->
+          </div>
+          
+          <div class="form-group">
+            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address">
+            <!-- Removed error display loop -->
+          </div>
+          
+          <div class="form-group">
+            <label for="password"><i class="fas fa-lock"></i> Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Choose a strong password">
+            <!-- Removed error display loop -->
+          </div>
+          
+          <div class="form-group">
+            <input type="submit" value="Register" class="btn btn-auth">
+          </div>
+        </form>
+        
+        <div class="auth-footer">
+          <!-- Use static path for login link -->
+          <p>Already have an account? <a href="login.html">Sign in</a></p>
+          <!-- Removed backend-specific db health check link -->
+          <p class="small text-muted">Having trouble? Contact support.</p> 
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <h3>Contact Us</h3>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <i class="fas fa-envelope contact-icon"></i>
+        <p>support@webinterprep.com</p>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone contact-icon"></i>
+        <p>+123 456 7890</p>
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p class="copyright">© 2023 WEB-INTER-PREP. All rights reserved.</p>
+  </footer>
+
+  <!-- Use static path for JS -->
+  <script src="static/js/script.js"></script>
+</body>
+
+</html> 
